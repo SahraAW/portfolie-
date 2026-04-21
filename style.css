@@ -1,0 +1,258 @@
+:root {
+  --bg: #f5ede3;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-border: rgba(86, 63, 50, 0.12);
+  --text: #2f2622;
+  --muted: #6d564a;
+  --accent: #b4532f;
+  --accent-strong: #8a3a22;
+  --shadow: 0 18px 50px rgba(56, 33, 24, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(180, 83, 47, 0.16), transparent 38%),
+    linear-gradient(180deg, #fdf8f2 0%, var(--bg) 100%);
+}
+
+header {
+  padding: 4rem 1rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.profile {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  border-radius: 28px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  box-shadow: var(--shadow);
+}
+
+.profile h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  letter-spacing: 0.02em;
+}
+
+.profile p {
+  margin: 0.75rem 0 0;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.page-shell {
+  width: min(920px, calc(100% - 2rem));
+  margin: 0 auto 3rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.card {
+  padding: 1.5rem 1.5rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.card h2 {
+  margin: 0 0 0.9rem;
+  color: var(--accent-strong);
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+.card p,
+.card li {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.card li + li {
+  margin-top: 0.55rem;
+}
+
+.contact-card p {
+  margin: 0.4rem 0;
+}
+
+.menu-card {
+  grid-column: 1 / -1;
+}
+
+.menu-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.menu-link {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.menu-link:hover {
+  background: rgba(180, 83, 47, 0.12);
+  border-color: rgba(180, 83, 47, 0.28);
+}
+
+.menu-link.current {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.menu-link.current:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  color: var(--accent-strong);
+  text-decoration: underline;
+}
+
+footer {
+  padding: 1.25rem 1rem 2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .page-shell {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #about,
+  #contact {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  header {
+    padding-top: 2rem;
+  }
+
+  .profile {
+    padding: 2rem 1.1rem;
+    border-radius: 22px;
+  }
+
+  .card {
+    padding: 1.25rem 1.1rem;
+    border-radius: 18px;
+  }
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 3rem auto;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.secondary {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.hero-img img {
+  width: 260px;
+  border-radius: 20px;
+}
+
+/* PROJECTS */
+.projects {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.projects h2 {
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.project {
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: white;
+  box-shadow: var(--shadow);
+  transition: 0.2s;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+}
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 200px;
+  }
+}
